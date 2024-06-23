@@ -5,7 +5,7 @@ from flask_cors import CORS
 from googleapiclient.discovery import build
 import os
 
-YOUTUBE_API_KEY = 'AIzaSyAHHa4K-J61KgLVFnLH7XnIXNDXQDkbjrc' 
+YOUTUBE_API_KEY = '' 
 youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
 
 model_name = 'E:\Desktop1\FYP\HarmonyCare\Chatbot+Music\Chatbot-backend\BlenderBot3'
@@ -16,8 +16,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 app = Flask(__name__)
-CORS(app)  
-app.secret_key = os.urandom(24)  
+CORS(app)    
 app.config['SESSION_COOKIE_NAME'] = 'random_session_cookie_chatbot'  
 
 @app.route('/generate-response', methods=['POST'])
